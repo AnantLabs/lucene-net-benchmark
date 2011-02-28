@@ -1,0 +1,2075 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RTools.Util</name>
+    </assembly>
+    <members>
+        <member name="T:RTools.Util.VerbosityLevel">
+            <summary>
+            This enumerates verbosity levels.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.VerbosityLevel.Error">
+            <summary>For error messages.</summary>
+        </member>
+        <member name="F:RTools.Util.VerbosityLevel.Warn">
+            <summary>For warn messages.</summary>
+        </member>
+        <member name="F:RTools.Util.VerbosityLevel.Info">
+            <summary>For info messages.</summary>
+        </member>
+        <member name="F:RTools.Util.VerbosityLevel.Debug">
+            <summary>For debug messages.</summary>
+        </member>
+        <member name="T:RTools.Util.StreamTokenizerUntermException">
+            <summary>
+            Exception class for unterminated tokens.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerUntermException.#ctor(System.String)">
+            <summary>
+            Construct with a particular message.
+            </summary>
+            <param name="msg">The message to store in this object.</param>
+        </member>
+        <member name="T:RTools.Util.StreamTokenizerUntermQuoteException">
+            <summary>
+            Exception class for unterminated quotes.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerUntermQuoteException.#ctor(System.String)">
+            <summary>
+            Construct with a particular message.
+            </summary>
+            <param name="msg">The message to store in this object.</param>
+        </member>
+        <member name="T:RTools.Util.StreamTokenizerUntermCommentException">
+            <summary>
+            Exception class for unterminated block comments.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerUntermCommentException.#ctor(System.String)">
+            <summary>
+            Construct with a particular message.
+            </summary>
+            <param name="msg">The message to store in this object.</param>
+        </member>
+        <member name="T:RTools.Util.CharTypeBits">
+            <summary>
+            Bitwise enumeration for character types.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Word">
+            <summary>word characters (usually alpha, digits, and domain specific)</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Comment">
+            <summary># or something for line comments</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Whitespace">
+            <summary>whitespace</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Quote">
+            <summary>' or " type</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Digit">
+            <summary>usually 0 to 9</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.HexDigit">
+            <summary>usually 0 to 9, a-f and A-F</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Eof">
+            <summary>eof char</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Eol">
+            <summary>eol char</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Char">
+            <summary>Char char</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Float">
+            <summary>Float</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.Int">
+            <summary>Int</summary>
+        </member>
+        <member name="F:RTools.Util.CharTypeBits.String">
+            <summary>String</summary>
+        </member>
+        <member name="T:RTools.Util.StreamTokenizerSettings">
+            <summary>
+            This contains the settings that control the behavior of the tokenizer.
+            This is separated from the StreamTokenizer so that common settings
+            are easy to package and keep together.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.#ctor(RTools.Util.StreamTokenizerSettings)">
+            <summary>
+            Copy constructor.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.Copy(RTools.Util.StreamTokenizerSettings)">
+            <summary>
+            Sets this object to be the same as the specified object.
+            Note that some settings which are entirely embodied by the character
+            type table.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.SetDefaults">
+            <summary>
+            Setup default parse behavior.
+            This resets to same behavior as on construction.
+            </summary>
+            <returns>bool - true for success.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.SetupForCodeParse">
+            <summary>
+            Apply settings which are commonly used for code parsing
+            C-style code, including C++, C#, and Java.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.ResetCharTypeTable">
+            <summary>
+            Clear the character type settings.  This leaves them unset,
+            as opposed to the default.  Use SetDefaults() for default
+            settings.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.WordChar(System.Int32)">
+            <summary>
+            Specify that a particular character is a word character.
+            Character table type manipulation method.
+            This adds the type to the char(s), rather
+            than overwriting other types.
+            </summary>
+            <param name="c">The character.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.WordChars(System.Int32,System.Int32)">
+            <summary>
+            Specify that a range of characters are word characters.
+            Character table type manipulation method.
+            This adds the type to the char(s), rather
+            than overwriting other types.
+            </summary>
+            <param name="startChar">First character.</param>
+            <param name="endChar">Last character.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.WordChars(System.String)">
+            <summary>
+            Specify that a string of characters are word characters.
+            Character table type manipulation method.
+            This adds the type to the char(s), rather
+            than overwriting other types.
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.WhitespaceChar(System.Int32)">
+            <summary>
+            Specify that a character is a whitespace character.
+            Character table type manipulation method.
+            This type is exclusive with other types.
+            </summary>
+            <param name="c">The character.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.WhitespaceChars(System.Int32,System.Int32)">
+            <summary>
+            Specify that a range of characters are whitespace characters.
+            Character table type manipulation method.
+            This adds the characteristic to the char(s), rather
+            than overwriting other characteristics.
+            </summary>
+            <param name="startChar">First character.</param>
+            <param name="endChar">Last character.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.OrdinaryChars(System.Int32,System.Int32)">
+            <summary>
+            Remove other type settings from a range of characters.
+            Character table type manipulation method.
+            </summary>
+            <param name="startChar"></param>
+            <param name="endChar"></param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.OrdinaryChar(System.Int32)">
+            <summary>
+            Remove other type settings from a character.
+            Character table type manipulation method.
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.CommentChar(System.Int32)">
+            <summary>
+            Specify that a particular character is a comment-starting character.
+            Character table type manipulation method.
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.QuoteChar(System.Int32)">
+            <summary>
+            Specify that a particular character is a quote character.
+            Character table type manipulation method.
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.CharTypeToString(System.Byte)">
+            <summary>
+            Return a string representation of a character type setting.
+            Since the type setting is bitwise encoded, a character
+            can have more than one type.
+            </summary>
+            <param name="ctype">The character type byte.</param>
+            <returns>The string representation of the type flags.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.IsCharType(System.Byte,RTools.Util.CharTypeBits)">
+            <summary>
+            Check whether the specified char type byte has a 
+            particular type flag set.
+            </summary>
+            <param name="ctype">The char type byte.</param>
+            <param name="type">The CharTypeBits entry to compare to.</param>
+            <returns>bool - true or false</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.IsCharType(System.Char,RTools.Util.CharTypeBits)">
+            <summary>
+            Check whether the specified char has a 
+            particular type flag set.
+            </summary>
+            <param name="c">The character.</param>
+            <param name="type">The CharTypeBits entry to compare to.</param>
+            <returns>bool - true or false</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.IsCharType(System.Int32,RTools.Util.CharTypeBits)">
+            <summary>
+            Check whether the specified char has a 
+            particular type flag set.
+            </summary>
+            <param name="c">The character.</param>
+            <param name="type">The CharTypeBits entry to compare to.</param>
+            <returns>bool - true or false</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.Display">
+            <summary>
+            Display the state of this object.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerSettings.Display(System.String)">
+            <summary>
+            Display the state of this object, with a per-line prefix.
+            </summary>
+            <param name="prefix">The pre-line prefix.</param>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.CharTypes">
+            <summary>
+            This is the character type table.  Each byte is bitwise encoded
+            with the character attributes, such as whether that character is
+            word or whitespace.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.GrabWhitespace">
+            <summary>
+            Whether or not to return whitespace tokens.  If not, they're ignored.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.GrabEol">
+            <summary>
+            Whether or not to return EolTokens on end of line.  Eol tokens will not
+            break up other tokens which can be multi-line.  For example block comments 
+            and quotes will not be broken by Eol tokens.  Therefore the number of
+            Eol tokens does not give you the line count of a stream.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.SlashSlashComments">
+            <summary>
+            Whether or not to look for // comments
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.SlashStarComments">
+            <summary>
+            Whether or not to look for /* */ block comments.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.GrabComments">
+            <summary>
+            Whether or not to return comments.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.DoUntermCheck">
+            <summary>
+            Whether or not to check for unterminated quotes and block comments.
+            If true, and one is encoutered, an exception is thrown of the appropriate type.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.ParseNumbers">
+            <summary>
+            Whether or not digits are specified as Digit type in the
+            character table.
+            This setting is based on the character types table, so this
+            setting interacts with character type table manipulation.
+            This setting may become incorrect if you modify the character
+            types table directly.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerSettings.ParseHexNumbers">
+            <summary>
+            Whether or not to parse Hex (0xABCD...) numbers.
+            This setting is based on the character types table, so this
+            setting interacts with character type table manipulation.
+            </summary>
+        </member>
+        <member name="T:RTools.Util.StreamTokenizer">
+            <summary>
+            A StreamTokenizer similar to Java's.  This breaks an input stream
+            (coming from a TextReader) into Tokens based on various settings.  The settings
+            are stored in the TokenizerSettings property, which is a
+            StreamTokenizerSettings instance.
+            </summary>
+            <remarks>
+            <para>
+            This is configurable in that you can modify TokenizerSettings.CharTypes[] array
+            to specify which characters are which type, along with other settings
+            such as whether to look for comments or not.
+            </para>
+            <para>
+            WARNING: This is not internationalized.  This treats all characters beyond
+            the 7-bit ASCII range (decimal 127) as Word characters.
+            </para>
+            <para>
+            There are two main ways to use this: 1) Parse the entire stream at
+            once and get an ArrayList of Tokens (see the Tokenize* methods), 
+            and 2) call NextToken() successively.
+            This reads from a TextReader, which you can set directly, and this
+            also provides some convenient methods to parse files and strings.
+            This returns an Eof token if the end of the input is reached.
+            </para>
+            <para>
+            Here's an example of the NextToken() style of use:
+            <code>
+            StreamTokenizer tokenizer = new StreamTokenizer();
+            tokenizer.GrabWhitespace = true;
+            tokenizer.Verbosity = VerbosityLevel.Debug; // just for debugging
+            tokenizer.TextReader = File.OpenText(fileName);
+            Token token;
+            while (tokenizer.NextToken(out token)) log.Info("Token = '{0}'", token);
+            </code>
+            </para>
+            <para>
+            Here's an example of the Tokenize... style of use:
+            <code>
+            StreamTokenizer tokenizer = new StreamTokenizer("some string");
+            ArrayList tokens = new ArrayList();
+            if (!tokenizer.Tokenize(tokens)) 
+            { 
+            	// error handling
+            }
+            foreach (Token t in tokens) Console.WriteLine("t = {0}", t);
+            </code>
+            </para>
+            <para>
+            Comment delimiters are hardcoded (// and /*), not affected by char type table.
+            </para>
+            <para>
+            This sets line numbers in the tokens it produces.  These numbers are normally
+            the line on which the token starts.
+            There is one known caveat, and that is that when GrabWhitespace setting
+            is true, and a whitespace token contains a newline, that token's line number
+            will be set to the following line rather than the line on which the token
+            started.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:RTools.Util.StreamTokenizer.NChars">
+            <summary>
+            This is the number of characters in the character table.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.#ctor(System.IO.TextReader)">
+            <summary>
+            Construct and set this object's TextReader to the one specified.
+            </summary>
+            <param name="sr">The TextReader to read from.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.#ctor(System.String)">
+            <summary>
+            Construct and set a string to tokenize.
+            </summary>
+            <param name="str">The string to tokenize.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.Initialize">
+            <summary>
+            Utility function, things common to constructors.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.InitializeStream">
+            <summary>
+            Clear the stream settings.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.Display">
+            <summary>
+            Display the state of this object.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.Display(System.String)">
+            <summary>
+            Display the state of this object, with a per-line prefix.
+            </summary>
+            <param name="prefix">The pre-line prefix.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.PickNextState(System.Byte,System.Int32)">
+            <summary>
+            Pick the next state given just a single character.  This is used
+            at the start of a new token.
+            </summary>
+            <param name="ctype">The type of the character.</param>
+            <param name="c">The character.</param>
+            <returns>The state.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.PickNextState(System.Byte,System.Int32,RTools.Util.StreamTokenizer.NextTokenState)">
+            <summary>
+            Pick the next state given just a single character.  This is used
+            at the start of a new token.
+            </summary>
+            <param name="ctype">The type of the character.</param>
+            <param name="c">The character.</param>
+            <param name="excludeState">Exclude this state from the possible next state.</param>
+            <returns>The state.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.GetNextChar">
+            <summary>
+            Read the next character from the stream, or from backString
+            if we backed up.
+            </summary>
+            <returns>The next character.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.NextToken(RTools.Util.Token@)">
+            <summary>
+            Get the next token.  The last token will be an EofToken unless
+            there's an unterminated quote or unterminated block comment
+            and Settings.DoUntermCheck is true, in which case this throws
+            an exception of type StreamTokenizerUntermException or sub-class.
+            </summary>
+            <param name="token">The output token.</param>
+            <returns>bool - true for success, false for failure.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.GrabInt(RTools.Util.CharBuffer,System.Boolean,System.Char@)">
+            <summary>
+            Starting from current stream location, scan forward
+            over an int.  Determine whether it's an integer or not.  If so, 
+            push the integer characters to the specified CharBuffer.  
+            If not, put them in backString (essentially leave the
+            stream as it was) and return false.
+            <para>
+            If it was an int, the stream is left 1 character after the
+            end of the int, and that character is output in the thisChar parameter.
+            </para>
+            <para>The formats for integers are: 1, +1, and -1</para>
+            The + and - signs are included in the output buffer.
+            </summary>
+            <param name="sb">The CharBuffer to append to.</param>
+            <param name="allowPlus">Whether or not to consider + to be part
+            of an integer.</param>
+            <param name="thisChar">The last character read by this method.</param>
+            <returns>true for parsed an int, false for not an int</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.Tokenize(System.Collections.ArrayList)">
+            <summary>
+            Parse the rest of the stream and put all the tokens
+            in the input ArrayList. This resets the line number to 1.
+            </summary>
+            <param name="tokens">The ArrayList to append to.</param>
+            <returns>bool - true for success</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.TokenizeReader(System.IO.TextReader,System.Collections.ArrayList)">
+            <summary>
+            Parse all tokens from the specified TextReader, put
+            them into the input ArrayList.
+            </summary>
+            <param name="tr">The TextReader to read from.</param>
+            <param name="tokens">The ArrayList to append to.</param>
+            <returns>bool - true for success, false for failure.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.TokenizeFile(System.String,System.Collections.ArrayList)">
+            <summary>
+            Parse all tokens from the specified file, put
+            them into the input ArrayList.
+            </summary>
+            <param name="fileName">The file to read.</param>
+            <param name="tokens">The ArrayList to put tokens in.</param>
+            <returns>bool - true for success, false for failure.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.TokenizeString(System.String,System.Collections.ArrayList)">
+            <summary>
+            Parse all tokens from the specified string, put
+            them into the input ArrayList.
+            </summary>
+            <param name="str"></param>
+            <param name="tokens">The ArrayList to put tokens in.</param>
+            <returns>bool - true for success, false for failure.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.TokenizeStream(System.IO.Stream,System.Collections.ArrayList)">
+            <summary>
+            Parse all tokens from the specified Stream, put
+            them into the input ArrayList.
+            </summary>
+            <param name="s"></param>
+            <param name="tokens">The ArrayList to put tokens in.</param>
+            <returns>bool - true for success, false for failure.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.TokenizeFile(System.String)">
+            <summary>
+            Tokenize a file completely and return the tokens in a Token[].
+            </summary>
+            <param name="fileName">The file to tokenize.</param>
+            <returns>A Token[] with all tokens.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.TestSelf">
+            <summary>
+            Simple self test.  See StreamTokenizerTestCase for full
+            tests.
+            </summary>
+            <returns>bool - true for success, false for failure.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.SpeedTestParse(RTools.Util.StreamTokenizer,System.IO.Stream)">
+            <summary>
+            Use the supplied tokenizer to tokenize the specified stream
+            and time it.
+            </summary>
+            <param name="tokenizer"></param>
+            <param name="stream"></param>
+            <returns>Total milliseconds per parse.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizer.SpeedTest">
+            <summary>
+            Speed test.  This tests the speed of the parse.
+            </summary>
+            <returns>bool - true for ran, false for failed to run.</returns>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizer.TextReader">
+            <summary>
+            This is the TextReader that this object will read from.
+            Set this to set the input reader for the parse.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizer.Settings">
+            <summary>
+            The settings which govern the behavior of the tokenization.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizer.Verbosity">
+            <summary>
+            The verbosity level for this object's Logger.
+            </summary>
+        </member>
+        <member name="T:RTools.Util.StreamTokenizer.NextTokenState">
+            <summary>
+            The states of the state machine.
+            </summary>
+        </member>
+        <member name="T:RTools.Util.Token">
+            <summary>
+            Token class used by StreamTokenizer.
+            This represents a single token in the input stream.
+            This is subclassed to provide specific token types,
+            such as CharToken, FloatToken, etc.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Token.lineNumber">
+            <summary>
+            The line number in the input stream where this token originated.
+            This is base-1.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Token.obj">
+            <summary>
+            A storage object for the data of this token.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Token.untermError">
+            <summary>
+            Backer for UntermError.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Token.untermErrorMsg">
+            An error message associated with unterm error.
+        </member>
+        <member name="M:RTools.Util.Token.#ctor(System.Int32)">
+            <summary>
+            Construct a Token with the specified line number.
+            </summary>
+            <param name="line">The line number where this
+            token comes from.</param>
+        </member>
+        <member name="M:RTools.Util.Token.Equals(System.Object)">
+            <summary>
+            Equals override.
+            </summary>
+            <param name="other">The object to compare to.</param>
+            <returns>bool - true for equals, false otherwise.</returns>
+        </member>
+        <member name="M:RTools.Util.Token.Equals(System.String)">
+            <summary>
+            Equals overload.
+            </summary>
+            <param name="s">The string to compare to.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:RTools.Util.Token.Equals(System.Char)">
+            <summary>
+            Equals overload.
+            </summary>
+            <param name="c">The char to compare to.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:RTools.Util.Token.op_Equality(RTools.Util.Token,System.Object)">
+            <summary>
+            Operator== overload.  Compare a token and an object.
+            </summary>
+            <param name="t">The token to compare.</param>
+            <param name="o">The other object.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:RTools.Util.Token.op_Inequality(RTools.Util.Token,System.Object)">
+            <summary>
+            Operator!= overload.  Compare a token and an object.
+            </summary>
+            <param name="t">The token to compare.</param>
+            <param name="o">The other object.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:RTools.Util.Token.op_Equality(RTools.Util.Token,System.Char)">
+            <summary>
+            Operator== overload.  Compare a token and a char.
+            </summary>
+            <param name="t">The token to compare.</param>
+            <param name="c">The char.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:RTools.Util.Token.op_Inequality(RTools.Util.Token,System.Char)">
+            <summary>
+            Operator!= overload.  Compare a token and a char.
+            </summary>
+            <param name="t">The token to compare.</param>
+            <param name="c">The char.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:RTools.Util.Token.op_Equality(RTools.Util.Token,System.String)">
+            <summary>
+            Operator== overload.  Compare a token and a string.
+            </summary>
+            <param name="t">The token to compare.</param>
+            <param name="s">The string.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:RTools.Util.Token.op_Inequality(RTools.Util.Token,System.String)">
+            <summary>
+            Operator!= overload.  Compare a token and a string.
+            </summary>
+            <param name="t">The token to compare.</param>
+            <param name="s">The string.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:RTools.Util.Token.GetHashCode">
+            <summary>
+            Override.  Returns the ToString().GetHashCode().
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="M:RTools.Util.Token.ToLineString">
+            <summary>
+            Produce a string which includes the line number.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RTools.Util.Token.ToDebugString">
+            <summary>
+            Produce a string which includes the token type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RTools.Util.Token.ConvertToType(System.Type)">
+            <summary>
+            Create an object of the specified type corresponding to
+            this token.
+            </summary>
+            <param name="t">The type of object to create.</param>
+            <returns>The new object, or null for error.</returns>
+        </member>
+        <member name="P:RTools.Util.Token.type">
+            <summary>
+            This is the type of token we have expressed
+            as a member of the CharTypeBits enum
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Token.LineNumber">
+            <summary>
+            The line number where this token was found.  This is base-1.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Token.Object">
+            <summary>
+            The Object stored by this token.  This will be
+            a primitive C# type.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Token.UntermError">
+            <summary>
+            Whether or not there was an unterminated token problem
+            when creating this token.  See UntermErrorMessage for
+            a message associated with the problem.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Token.UntermErrorMsg">
+            <summary>
+            The error message if there was an unterminated token error
+            creating this token.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Token.StringValue">
+            <summary>
+            Return this token's value as a string.
+            </summary>
+            <returns>This token's value as a string.</returns>
+        </member>
+        <member name="T:RTools.Util.EolToken">
+            <summary>
+            Represents end-of-lines (line separator characters).
+            </summary>
+        </member>
+        <member name="M:RTools.Util.EolToken.#ctor">
+            <summary>Default constructor.</summary>
+        </member>
+        <member name="M:RTools.Util.EolToken.#ctor(System.Int32)">
+            <summary>Constructor that takes line number.</summary>
+        </member>
+        <member name="M:RTools.Util.EolToken.ToDebugString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.EolToken.ToString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.EolToken.Equals(System.Object)">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.EolToken.GetHashCode">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="P:RTools.Util.EolToken.StringValue">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="T:RTools.Util.EofToken">
+            <summary>
+            Represents end of file/stream.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.EofToken.#ctor">
+            <summary>Default constructor.</summary>
+        </member>
+        <member name="M:RTools.Util.EofToken.#ctor(System.Int32)">
+            <summary>Constructor that takes line number.</summary>
+        </member>
+        <member name="M:RTools.Util.EofToken.ToString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.EofToken.ToDebugString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.EofToken.Equals(System.Object)">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.EofToken.GetHashCode">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="P:RTools.Util.EofToken.StringValue">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="T:RTools.Util.StringToken">
+            <summary>
+            Abstract base class for string tokens.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StringToken.#ctor(System.String)">
+            <summary>Default constructor.</summary>
+        </member>
+        <member name="M:RTools.Util.StringToken.#ctor(System.String,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="M:RTools.Util.StringToken.ToDebugString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.StringToken.ToString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.StringToken.GetHashCode">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="P:RTools.Util.StringToken.StringValue">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="T:RTools.Util.WordToken">
+            <summary>
+            Token type for words, meaning sequences of word
+            characters.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.WordToken.#ctor(System.String)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.WordToken.#ctor(System.String,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="T:RTools.Util.QuoteToken">
+            <summary>
+            Token type for Quotes such as "this is a quote".
+            </summary>
+        </member>
+        <member name="M:RTools.Util.QuoteToken.#ctor(System.String)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.QuoteToken.#ctor(System.String,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="T:RTools.Util.CommentToken">
+            <summary>
+            Token type for comments, including line and block
+            comments.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.CommentToken.#ctor(System.String)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.CommentToken.#ctor(System.String,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="T:RTools.Util.WhitespaceToken">
+            <summary>
+            Token type for whitespace such as spaces and tabs.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.WhitespaceToken.#ctor(System.String)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.WhitespaceToken.#ctor(System.String,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="T:RTools.Util.CharToken">
+            <summary>
+            Token type for characters, meaning non-word characters.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.CharToken.#ctor(System.String,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="M:RTools.Util.CharToken.#ctor(System.Char)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.CharToken.#ctor(System.Char,System.Int32)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.CharToken.ToDebugString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.CharToken.ToString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.CharToken.GetHashCode">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.CharToken.Equals(System.Object)">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="P:RTools.Util.CharToken.StringValue">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="T:RTools.Util.FloatToken">
+            <summary>
+            Token type for floating point numbers, stored internally as a Double.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.#ctor(System.String)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.#ctor(System.Single)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.#ctor(System.Double)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.#ctor(System.String,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.#ctor(System.Double,System.Int32)">
+            <summary>Constructor with the specified value and line
+            number.</summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.ToDebugString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.ToString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.GetHashCode">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.FloatToken.Equals(System.Object)">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="P:RTools.Util.FloatToken.StringValue">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="T:RTools.Util.IntToken">
+            <summary>
+            Token type for integer tokens. This handles both Int32 and Int64.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.#ctor(System.Int32)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.#ctor(System.Int64)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.#ctor(System.String)">
+            <summary>Constructor with the specified value.</summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.#ctor(System.String,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.#ctor(System.Int32,System.Int32)">
+            <summary>Constructor with the specified value
+            and line number.</summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.#ctor(System.Int64,System.Int32)">
+            <summary> 
+            Constructor for a 64 bit int 
+            </summary> 
+        </member>
+        <member name="M:RTools.Util.IntToken.ParseHex(System.String,System.Int32)">
+            <summary>
+            Parse a string known to be a hex string.  This is faster
+            than Parse which doesn't assume the number is Hex.  This will
+            throw an exception if the input number isn't hex.
+            </summary>
+            <param name="s">The hex number as a string.</param>
+            <param name="lineNumber">The line where this token was found.</param>
+            <returns>A new IntToken set to the value in the input string.</returns>
+        </member>
+        <member name="M:RTools.Util.IntToken.Parse(System.String)">
+            <summary>
+            Convert the input string to an integer, if possible
+            </summary>
+            <param name="s">The string to parse.</param>
+        </member>
+        <member name="M:RTools.Util.IntToken.ToDebugString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.ToString">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.GetHashCode">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="M:RTools.Util.IntToken.Equals(System.Object)">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="P:RTools.Util.IntToken.StringValue">
+            <summary>Override, see base <see cref="T:RTools.Util.Token"/></summary>
+        </member>
+        <member name="T:RTools.Util.Opts">
+            <summary>
+            A command-line option parser similar to Perl's getopts. 
+            This is for parsing command-line
+            options like "-name foo -type theType -v -d".  This parses a string[]
+            (like Main usually takes) and collects argument information
+            based on a parse specification.
+            </summary>
+            <remarks>
+            <para>
+            The UsageSpec style parse is unfinished.  
+            Basically the UsageSpec style parse is more expressive than the
+            ParseSpec style parse (see below).  But in this current implementation,
+            none of the additional expressiveness is used.  In other words
+            this class does not currently do anything with the optional/required
+            switches (-file [-help]) and does not do anything with the pipe
+            operator.
+            </para>
+            <para>
+            This takes two types of parse specifications, a perl getopts style
+            such as "file=s, type:s, v, d" (see the ParseSpec property), 
+            or a unix usage style such as
+            "-file fileName -type [typeName] [-v|-d]" (see the UsageSpec property).
+            </para>
+            <para>
+            For the ParseSpec property, the rules are as follows:
+            1) The string is comma-separated like "file=s, type:s, v, d"
+            2) = means must have an argument
+            3) : means may have an argument
+            </para>
+            <para>
+            For the UsageSpec property, the rules are as follows:
+            1) Optional arguments must be enclosed in square brackets [].
+            2) Argument names must be all word characters (- is considered to be a 
+               word character).
+            </para>
+            <para>
+            
+            </para>
+            <para>
+            Here's an example use:
+            <code>
+            Opts opts = new Opts();
+            opts.ParseSpec = "file=s, type:s, v, d");
+             - or -
+            opts.UsageSpec = "-file fileName -type [typeName] [-v|-d]";
+            if (!opts.Parse(args, out errorMessage)) { // display error message and usage }
+            if (opts.Options.ContainsKey("v")) // -v was specified
+            if (!opts.Options.ContainsKey("file")) { error... // need -file specified }
+            Console.WriteLine("-file specified is {0}", opts.Options["file"]);
+            </code>
+            </para>
+            </remarks>
+        </member>
+        <member name="F:RTools.Util.Opts.log">
+            <summary>
+            Peer class for logging.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Opts.options">
+            <summary>
+            Has all the info after the parse... presence, and arguments.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Opts.unswitchedArgs">
+            <summary>
+            After the parse, has the arguments which were unswitched
+            (not after an option like -file).
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Opts.parseSpec">
+            <summary>
+            The specification.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Opts.requireArg">
+            <summary>
+            Set from the parseSpec. This is for options which require arguments.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Opts.mayHaveArg">
+            <summary>
+            Set from the parseSpec. This is for options which may have arguments.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.Opts.noArg">
+            <summary>
+            Set from the parseSpec. This is for options which do not have arguments.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Opts.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Opts.Initialize">
+            <summary>
+            Utility function, things common to constructors.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Opts.Display">
+            <summary>
+            Display the state of this object.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Opts.Display(System.String)">
+            <summary>
+            Display the state of this object, with a per-line prefix.
+            </summary>
+            <param name="prefix">The pre-line prefix.</param>
+        </member>
+        <member name="M:RTools.Util.Opts.DisplayParseSpec">
+            <summary>
+            Display the information gained from the parseSpec.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Opts.DisplayParseSpec(System.String)">
+            <summary>
+            Display the information gained from the parseSpec.
+            </summary>
+            <param name="prefix">A prefix to prepend to each line.</param>
+        </member>
+        <member name="M:RTools.Util.Opts.IsSwitch(System.String)">
+            <summary>
+            Utility method to determine whether a string is a switch or not.
+            This currently just checks if it starts with a - which is not
+            followed by a digit.
+            </summary>
+            <param name="s">The string to test.</param>
+            <returns>bool - true for yes it's a switch</returns>
+        </member>
+        <member name="M:RTools.Util.Opts.Parse(System.String[],System.String@)">
+            <summary>
+            Parse the options string[], determine if the parse spec
+            requirements are met, and provide an error message string
+            if not.
+            </summary>
+            <param name="args">The string[] to parse.</param>
+            <param name="errorMessage">Output error message. This
+            is set if the input options don't have all the pieces
+            required by the parseSpec string.</param>
+            <returns>bool - true if parseSpec requirements are met, 
+            false otherwise.</returns>
+        </member>
+        <member name="M:RTools.Util.Opts.TestSelf">
+            <summary>
+            Simple self test.
+            </summary>
+            <returns>bool - true for success, false for failure.</returns>
+        </member>
+        <member name="P:RTools.Util.Opts.ParseSpec">
+            <summary>
+            The specification of what options to look for, which
+            have arguments, etc.  This is the "name=s, type:s, v, d"
+            style.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Opts.UsageSpec">
+            <summary>
+            The specification of what options to look for, which
+            have arguments, etc.  This is the "-name fileName [-v|-d]"
+            style.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Opts.Options">
+            <summary>
+            This hashtable is built during Parse.  This contains the results
+            of the parse for switches (options). Options which don't take
+            arguments will map to bool True.  Options which may have arguments
+            will map to the argument string if present, and null if not present.
+            Options which must have arguments will map to the argument string
+            if the Parse succeeds.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Opts.UnswitchedArgs">
+            <summary>
+            These are the rest of the command line arguments which are
+            not associated with options (switches like "-file").
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Opts.Verbosity">
+            <summary>
+            The verbosity level for this object's Logger.
+            </summary>
+        </member>
+        <member name="T:RTools.Util.Finder">
+            <summary>
+            This class provides some static methods which are useful
+            for file system "find" types of operations, similar to the *nix find
+            command.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Finder.Main(System.String[])">
+            <summary>
+            A main which provides a command-line interface.  Run it without
+            arguments or with -h or -? to see usage.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Finder.ChangeBackSlashes(System.String)">
+            <summary>
+            Switch from backslashes to forward slashes.
+            Zip file format specifies only forward slashes.
+            </summary>
+            <param name="s">The input string.</param>
+            <returns>string - with backslashes replaced by forward.</returns>
+        </member>
+        <member name="M:RTools.Util.Finder.FindFiles(System.String,System.Collections.ArrayList,System.Collections.SortedList@,System.Boolean)">
+            <summary>
+            Find files under a specified directory and matching any of
+            a set of regular expressions. Return them by putting
+            (string -> null) entries into the input SortedList.
+            The regular expressions are Command Prompt dir command 
+            type (like *.cs), not normal regular expressions.
+            This optionally puts the directory name itself into the list.
+            </summary>
+            <remarks>This uses SortedList to get the insertion sort.</remarks>
+            <param name="dirName">The directory to find files under. "." works.</param>
+            <param name="regexps">List of directory regexp strings, for example *.cs
+            and *.bat</param>
+            <param name="list">The SortedList to fill.</param>
+            <param name="addDirItself">Whether to add the dir name into the list.</param>
+            <returns>bool - true for success, false for failure</returns>
+        </member>
+        <member name="M:RTools.Util.Finder.FindFiles(System.String,System.String,System.Collections.SortedList@,System.Boolean)">
+            <summary>
+            Overload with single regular expression.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Finder.AddParents(System.Collections.SortedList)">
+            <summary>
+            For each entry in the input SortedList (where the keys in the
+            list entries are strings, the file paths) add all parent 
+            directories into the list.  So given a list with an entry
+            with key "a/b/c", put "a/b" and "a" in the list.
+            </summary>
+            <remarks>The new entries are string dir name with value null.
+            </remarks>
+            <param name="list">The SortedList of DictionaryEntry's, with
+            string file path keys.</param>
+            <returns>true</returns>
+        </member>
+        <member name="T:RTools.Util.StreamTokenizerTestCase">
+            <summary>
+            This represents a test case for the StreamTokenizer.
+            You instantiate one, set it up with a test string and
+            some expected (truth) tokens, and Run() it to see if you get the
+            expected Tokens.
+            This has some static methods to run a large set of built-in
+            tests.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.StreamTokenizerTestCase.testString">
+            <summary>The test input string to parse.</summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.#ctor(System.String,System.String)">
+            <summary>
+            Constructs with arguments.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.ToString">
+            <summary>
+            Return a string representation of this object.
+            </summary>
+            <returns>The string representation (the name).</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.Display">
+            <summary>
+            Display the state of this object.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.Display(System.String)">
+            <summary>
+            Display the state of this object, with a per-line prefix.
+            </summary>
+            <param name="prefix">The pre-line prefix.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.Run(System.Boolean@)">
+            <summary>
+            Run this test case using the current settings, truth tokens,
+            and test string.
+            There are two bools involved here: the return value is whether
+            or not we were able to run the test, and the out result is
+            whether or not the test passed (if it was run).
+            </summary>
+            <param name="result">If the test case was run successfully,
+            whether or not it passed.</param>
+            <returns>Whether or not we were able to run the test case.
+            This does not mean the test case passed or failed.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.DisplayTokens(System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            Utility method to display two ArrayList's of tokens.
+            </summary>
+            <param name="truthTokens">The truth tokens.</param>
+            <param name="resultTokens">The result tokens.</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.CompareTokens(System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            Compare the two lists of tokens, display mismatches.
+            This also compares the token's line numbers. Line numbers
+            are base 1 so 0 is an invalid line number.  If the truth
+            token's line number is 0, this doesn't compare the line numbers
+            for that token.
+            </summary>
+            <param name="truthTokens">The correct token list.</param>
+            <param name="resultTokens">The actual token list.</param>
+            <returns>Whether they matched.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.AddTruthTokens(RTools.Util.Token[])">
+            <summary>
+            Convenient way to add multiple Tokens to the truthTokens.
+            This makes sure the last token is an EofToken, since that's
+            always produced by StreamTokenizer.
+            </summary>
+            <param name="tokens">The tokens, params Token[].</param>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.DropEofTruthToken">
+            <summary>
+            Drop the Eof token.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.RunTests(RTools.Util.VerbosityLevel)">
+            <summary>
+            Run all built-in tests.
+            </summary>
+            <param name="v">The VerbosityLevel to run at.</param>
+            <returns>bool - true for all pass, false for one or more failed.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.RunATest(System.String,RTools.Util.VerbosityLevel)">
+            <summary>
+            Run a built-in test, specified by name.
+            </summary>
+            <param name="testName">The name of the test to run.</param>
+            <param name="v">The VerbosityLevel to run at.</param>
+            <returns>bool - true for all pass, false for one or more failed.</returns>
+        </member>
+        <member name="M:RTools.Util.StreamTokenizerTestCase.BuildTestCases(System.Collections.ArrayList)">
+            <summary>
+            Build some hard-coded test cases, put them into the input list.
+            </summary>
+            <param name="list">The list to put the test cases into.</param>
+            <returns>bool - true for success, false for failure.</returns>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerTestCase.TokenizerSettings">
+            <summary>The tokenizer settings for this test case.</summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerTestCase.Verbosity">
+            <summary>The verbosity, used during test case run.</summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerTestCase.Name">
+            <summary>The name of this test case.</summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerTestCase.TruthTokens">
+            <summary>The "truth", which is a list of Tokens.</summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerTestCase.TestString">
+            <summary>The test input string to parse.</summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerTestCase.ExpectUntermQuote">
+            <summary>
+            Whether or not to expect an unterminated quote exception when
+            this test case is run.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.StreamTokenizerTestCase.ExpectUntermComment">
+            <summary>
+            Whether or not to expect an unterminated comment exception when
+            this test case is run.
+            </summary>
+        </member>
+        <member name="T:RTools.Util.BufferedTextReader">
+            <summary>
+            Wraps a TextReader with buffering for speed. This is not finished,
+            and preliminary testing indicates it isn't faster than FCL implementation.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.BufferedTextReader.#ctor(System.IO.TextReader)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="reader">The TextReader to wrap.</param>
+        </member>
+        <member name="M:RTools.Util.BufferedTextReader.Read">
+            <summary>
+            Read a single character.
+            </summary>
+            <returns>The character read.</returns>
+        </member>
+        <member name="M:RTools.Util.BufferedTextReader.Close">
+            <summary>
+            Close the underlying reader.
+            </summary>
+        </member>
+        <member name="T:RTools.Util.ParseUtil">
+            <summary>
+            A start on some utility methods for parsing in conjunction with
+            StreamTokenizer.  These currently use Token[] but could be adapted
+            for ArrayList.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.BuildArray(System.Collections.ArrayList,System.Int32@,System.Type,RTools.Util.Token,System.Int32,RTools.Util.Logger)">
+            <summary>
+            Build an Array of a particular type from a list of tokens.  
+            The Type must be one that can be built with Convert.ChangeType.
+            There are various ways to specify how many elements to parse.
+            WARNING: This will throw an exception if any tokens cannot be
+            converted.
+            </summary>
+            <param name="tokens">The ArrayList of tokens.</param>
+            <param name="i">The starting (and ending) index.  This is
+            modified, and left pointing at the last used token.</param>
+            <param name="type">The Type of the array elements.</param>
+            <param name="endToken">An optional end Token to look for.
+            Parsing stops when a token equal to this is found.
+            If this is null, then it is not used.</param>
+            <param name="maxLength">The maximum number of array elements
+            to parse.  If this is negative, then it is not used.</param>
+            <param name="log">A Logger to use for messages.</param>
+            <returns>The Array, or null for error.</returns>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.SkipToWord(RTools.Util.Token[],System.Int32@)">
+            <summary>
+            Given a Token[] and a reference int, skip forward
+            in the token array until a WordToken is found,
+            and leave the reference int at that index.
+            </summary>
+            <param name="tokens">The token array.</param>
+            <param name="i">The start index, and the result index.</param>
+            <returns>bool - true for success, false for 
+            hit the end of the tokens.</returns>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.SkipToStringValue(RTools.Util.Token[],System.Int32@,System.String)">
+            <summary>
+            Given a Token[], a reference int and a string, skip forward
+            in the token array until a token matches the string
+            and leave the reference int at that index.
+            </summary>
+            <param name="tokens">The token array.</param>
+            <param name="i">The start index, and the result index.</param>
+            <param name="s">The string to look for.</param>
+            <returns>bool - true for success, false for 
+            hit the end of the tokens.</returns>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.SkipToChar(RTools.Util.Token[],System.Int32@,System.Char)">
+            <summary>
+            Given a Token[] and a reference int, skip forward
+            in the token array until a WordToken is found,
+            and leave the reference int at that index.
+            </summary>
+            <param name="tokens">The token array.</param>
+            <param name="i">The start index, and the result index.</param>
+            <param name="c">The char to look for.</param>
+            <returns>bool - true for success, false for 
+            hit the end of the tokens.</returns>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.SkipWs(RTools.Util.Token[],System.Int32@)">
+            <summary>
+            Given a Token[] and a reference int, skip forward
+            in the token array until a WordToken is found,
+            and leave the reference int at that index.
+            </summary>
+            <param name="tokens">The token array.</param>
+            <param name="i">The start index, and the result index.</param>
+            <returns>bool - true for success, false for 
+            hit the end of the tokens.</returns>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.SkipToEol(RTools.Util.Token[],System.Int32@)">
+            <summary>
+            Given a Token[] and a reference int, skip forward
+            in the token array until a WordToken is found,
+            and leave the reference int at that index.
+            </summary>
+            <param name="tokens">The token array.</param>
+            <param name="i">The start index, and the result index.</param>
+            <returns>bool - true for success, false for 
+            hit the end of the tokens.</returns>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.DropTokens(RTools.Util.Token[],RTools.Util.Token[])">
+            <summary>
+            Given a Token[] and a reference int, skip forward
+            in the token array until a WordToken is found,
+            and leave the reference int at that index.
+            </summary>
+            <param name="tokens">The token array.</param>
+            <param name="dropTokens">The tokens to drop.</param>
+            <returns>bool - true for success, false for 
+            hit the end of the tokens.</returns>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.FindMatch(RTools.Util.Token[],System.Int32@,System.Char)">
+            <summary>
+            Find matching closing character.
+            The matchable pairs of characters are parenthesis (), 
+            square brackets [], and curly braces {}.
+            Given a Token[] and a reference int containing the index
+            in the Token[] of a matchable? char, skip forward
+            in the token array until the matching character is found.
+            </summary>
+            <remarks>
+            This implicitly skips matching characters in quotes and
+            comments if they are hidden in the tokens.  So if you grab
+            comments and quotes when you tokenize, the characters in those
+            tokens are not looked at by this function.
+            </remarks>
+            <param name="tokens">The token array.</param>
+            <param name="i">The start index, and the result index.</param>
+            <param name="c">The start character whose match is to be found.</param>
+            <returns>bool - true for success, false for 
+            hit the end of the tokens.</returns>
+        </member>
+        <member name="M:RTools.Util.ParseUtil.TestSelf">
+            <summary>
+            Simple test of some ParseUtil methods.
+            </summary>
+            <returns>bool - true for all passed, false otherwise</returns>
+        </member>
+        <member name="T:RTools.Util.SoftwarePackage">
+            <summary>
+            This class represents an installed software package on a Windows
+            system.  This has some static utility methods that will get the
+            list of installed software packages, letting you uninstall one.
+            </summary>
+            <remarks>
+            <para>This is motivated by the desire to get the version of an installed
+            package, and by the fact that I wasn't able to find an easier way to 
+            uninstall an Msi by product name (msiexec need the product code).
+            </para>
+            <para>
+            This looks for uninstallable packages in the registry in:
+            HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall
+            </para>
+            </remarks>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor which sets all values.
+            </summary>
+            <param name="name">The product name.</param>
+            <param name="productCode">The ProductCode.</param>
+            <param name="uninstallString">The uninstall string.</param>
+            <param name="displayVersion">The display version.</param>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.Uninstall(System.Boolean)">
+            <summary>
+            Uninstall this setup.
+            </summary>
+            <param name="interactive">Whether or not to use the interactive
+            interface.</param>
+            <returns>bool - true for success, false for failure</returns>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.ToString">
+            <summary>
+            ToString override.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.GetList">
+            <summary>
+            This returns an array of potentially unstallable SoftwarePackages.
+            See SoftwarePackage.IsUninstallable to see whether this class
+            can uninstall a particular SoftwarePackage.
+            </summary>
+            <returns>The SoftwarePackage[], null for error.</returns>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.GetPackage(System.String)">
+            <summary>
+            Get a particular software package, by product name. This returns
+            the first package found with the specified product name.
+            </summary>
+            <param name="productName">The product name of the package to 
+            get.</param>
+            <returns>SoftwarePackage</returns>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.FindOne(System.String,RTools.Util.SoftwarePackage[])">
+            <summary>
+            This returns the requested SoftwarePackage only if it only appears 
+            exactly once (as determined solely by name) in the input SoftwarePackage
+            array.
+            </summary>
+            <param name="name">The product name to look for.</param>
+            <param name="list">The array of SoftwarePackages to search.</param>
+            <returns>The SoftwarePackage found, or null for none found or more
+            than one found.</returns>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.UninstallMultiple(System.String,System.Boolean)">
+            <summary>
+            Uninstall all uninstallable packages with the specified product name.
+            </summary>
+            <param name="productName">The product name of the packages to 
+            uninstall.</param>
+            <param name="interactive">Whether to run Msiexec in interactive mode
+            or not.</param>
+            <returns>bool - true for 1 or more found and uninstalled, false
+            otherwise.</returns>
+        </member>
+        <member name="M:RTools.Util.SoftwarePackage.TestSelf">
+            <summary>
+            A simple self test. This relies on a particular product
+            being installed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:RTools.Util.SoftwarePackage.Name">
+            <summary>Product name.</summary>
+        </member>
+        <member name="P:RTools.Util.SoftwarePackage.ProductCode">
+            <summary>Product Code.</summary>
+        </member>
+        <member name="P:RTools.Util.SoftwarePackage.UninstallString">
+            <summary>Uninstall string (a shell command to use to remove this SoftwarePackage).</summary>
+        </member>
+        <member name="P:RTools.Util.SoftwarePackage.DisplayVersion">
+            <summary>The DisplayVersion for this SoftwarePackage.</summary>
+        </member>
+        <member name="P:RTools.Util.SoftwarePackage.IsUninstallable">
+            <summary>Whether or not this SoftwarePackage is uninstallable (by this class).</summary>
+        </member>
+        <member name="T:RTools.Util.Logger">
+            <summary>
+            This is a simple implementation of a Logger class.
+            The purpose is to threshold output based on a verbosity setting,
+            format messages similarly, and collect all message writes such that
+            they can be redirected easily.  You (and I) should probably use
+            the Apache Software Foundation's log4net instead of this class.
+            </summary>
+            <remarks>
+            This doesn't implement much of the functionality possible
+            with this interface.  This could redirect messages to other
+            text writers, forward messages to subscribers, etc.
+            </remarks>
+        </member>
+        <member name="F:RTools.Util.Logger.log">
+            <summary>Backer for Log.</summary>
+        </member>
+        <member name="F:RTools.Util.Logger.name">
+            <summary>The name is prepended to all messages. </summary>
+        </member>
+        <member name="F:RTools.Util.Logger.verbosity">
+            <summary>
+            The verbosity of this logger.  Messages are filtered
+            based on this setting.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Logger.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.Logger.#ctor(System.String)">
+            <summary>
+            Construct and set name.
+            </summary>
+            <param name="name">The name for this logger.  This name
+            is prepended to output messages (except Out messages).</param>
+        </member>
+        <member name="M:RTools.Util.Logger.Write(System.String,System.Object[])">
+            <summary>
+            Write a string with no verbosity checking and no formatting.
+            </summary>
+            <param name="msg">The format string.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:RTools.Util.Logger.WriteLine(System.String,System.Object[])">
+            <summary>
+            Write a line with no verbosity checking and no formatting.
+            </summary>
+            <param name="msg">The format string.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:RTools.Util.Logger.Debug(System.String,System.Object[])">
+            <summary>
+            Write a string of this particular verbosity.
+            This will not output the string unless the verbosity is
+            greater than or equal to this object's threshold.
+            This prepends the level of the message and
+            the name of this Logger.
+            </summary>
+            <param name="msg">The format string.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:RTools.Util.Logger.Info(System.String,System.Object[])">
+            <summary>
+            Write a string of this particular verbosity.
+            This will not output the string unless the verbosity is
+            greater than or equal to this object's threshold.
+            This prepends the level of the message and
+            the name of this Logger.
+            </summary>
+            <param name="msg">The format string.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:RTools.Util.Logger.Warn(System.String,System.Object[])">
+            <summary>
+            Write a string of this particular verbosity.
+            This will not output the string unless the verbosity is
+            greater than or equal to this object's threshold.
+            This prepends the level of the message and
+            the name of this Logger.
+            </summary>
+            <param name="msg">The format string.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:RTools.Util.Logger.Error(System.String,System.Object[])">
+            <summary>
+            Write a string of this particular verbosity.
+            This will not output the string unless the verbosity is
+            greater than or equal to this object's threshold.
+            This prepends the level of the message and
+            the name of this Logger.
+            </summary>
+            <param name="msg">The format string.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:RTools.Util.Logger.TestSelf">
+            <summary>
+            A simple static self test method.
+            </summary>
+            <returns>bool - currently always true</returns>
+        </member>
+        <member name="P:RTools.Util.Logger.Log">
+            <summary>
+            A static instance you can use without creating your own.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.Logger.Verbosity">
+            <summary>
+            The verbosity of this logger.  Messages are filtered
+            based on this setting.
+            </summary>
+        </member>
+        <member name="T:RTools.Util.HighResClock">
+            <summary>
+            This provides access to the Kernel32.dll high resolution clock API.  This
+            is motivated by the need to have higher resolution than .Net's
+            DateTime.Now, which is apparently about 10ms.  The effective resolution
+            of HighResClock on a P4 1.4GHz is about 10us.
+            <seealso cref="T:System.TimeSpan"/>
+            <seealso cref="T:System.DateTime"/>
+            </summary>
+            <remarks>
+            <para>
+            WARNING: I don't have any particularly good way of verifying
+            the accuracy of this class.  The best I've done is in the TestSelf()
+            which is to compare the measured duration to Sleep(), which is loose.
+            Also, I haven't tested this on any other PCs.  I understand
+            that the high performance counter may not
+            be available on all systems.
+            </para>
+            <para>The "ticks" in this class DO correspond to ticks
+            in DateTime and TimeSpan, except in the Frequency property which is 
+            explicitly the high performance counter frequency.</para>
+            <para>
+            It's relatively expensive to read this clock, compared to DateTime.Now.
+            Although it's only about 10us on a P4 1.4GHz, it's faster
+            to use DateTime.Now.
+            </para>
+            <para>
+            This does a calibration to determine function call overhead time, 
+            which is a static field.  
+            This has a static constructor which calls Calibrate().
+            Calibrate() temporarily boosts the calling process and thread priority
+            to avoid being affected by other processes/threads.
+            </para>
+            <para>
+            The duration calculations are adjusted by the function call overhead
+            time calculated during Calibrate(), but Now, NowTicks, etc are not.
+            </para>
+            <para>
+            You can use this just like DateTime for timing durations:
+            <code>
+            DateTime startTime = HighResClock.Now;
+            // do something you want to time here
+            TimeSpan duration = HighResClock.Now - startTime;
+            Console.WriteLine("Duration: {0}ms", duration.TotalMilliseconds);
+            </code> 
+            </para>
+            <para>
+            To compensate for the overhead in the high resolution clock reads,
+            you can use the following:
+            <code>
+            DateTime startTime = HighResClock.Now;
+            // do something you want to time here
+            TimeSpan duration = HighResClock.CalcTimeSpan(startTime);
+            Console.WriteLine("Duration: {0}ms", duration.TotalMilliseconds);
+            </code> 
+            </para>
+            </remarks>
+        </member>
+        <member name="M:RTools.Util.HighResClock.K32QueryPerformanceCounter(System.Int64@)">
+            <summary>
+            The ticks returned by this function are not the same as
+            .Net's ticks.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.HighResClock.K32QueryPerformanceFrequency(System.Int64@)">
+            <summary>
+            This returns Kernel32 ticks/sec.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.HighResClock.perfFreq">
+            <summary>
+            Frequency obtained from kernel32.  This is in kernel32's ticks 
+            per second.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.HighResClock.overheadTicks">
+            <summary>
+            The minimum duration that this class is able to measure. 
+            This is measured during Calibrate().
+            This represents the number of ticks it takes to make
+            a duration measurement, and is therefore the effective 
+            resolution of this class.
+            </summary>
+        </member>
+        <member name="F:RTools.Util.HighResClock.k32TicksOffset">
+            <summary>
+            This stores the offset between Kernel32's ticks and .Net's
+            DateTime's ticks, so that we can produce accurate DateTime's.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.HighResClock.#ctor">
+            <summary>Not supposed to instantiate this class.</summary>
+        </member>
+        <member name="M:RTools.Util.HighResClock.#cctor">
+            <summary>Static constructor.</summary>
+        </member>
+        <member name="M:RTools.Util.HighResClock.Calibrate">
+            <summary>
+            Measure overhead for interop calls and clock resolution.
+            The resultant values are stored in static fields.
+            The resultant clock frequency and function call overhead
+            measurement are used in ticks to ms conversion and 
+            duration calculations, respectively.
+            </summary>
+            <remarks>
+            <para>
+            This is called from the static constructor, so you typically
+            won't benefit from calling it, unless during construction
+            there were other very high priority things going on that
+            affected the timing of the statements in this method.
+            </para>
+            <para>
+            This temporarily boosts this process and thread priority
+            to avoid being affected by other processes/threads, so you 
+            definitely don't want to call this a lot.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:RTools.Util.HighResClock.TicksToMs(System.Int64)">
+            <summary>
+            Convert ticks to milliseconds. (A tick is 100 nanoseconds.)
+            </summary>
+            <remarks>No adjustment is made to this due to OverheadTicks.</remarks>
+            <param name="ticks">The tick count.</param>
+            <returns>float - the number of milliseconds.</returns>
+        </member>
+        <member name="M:RTools.Util.HighResClock.CalcTimeSpan(System.Int64,System.Int64)">
+            <summary>
+            Calculate the duration as a TimeSpan.
+            <seealso cref="T:System.TimeSpan"/>
+            </summary>
+            <remarks>This subtracts OverheadTicks from the measured ticks
+            to compensate for overhead.</remarks>
+            <param name="startTicks">The starting tick count.</param>
+            <param name="stopTicks">The stopTicks tick count.</param>
+            <returns>A new TimeSpan.</returns>
+        </member>
+        <member name="M:RTools.Util.HighResClock.CalcTimeSpan(System.Int64)">
+            <summary>
+            Calculate the duration (to NowTicks) as a TimeSpan.
+            <seealso cref="T:System.TimeSpan"/>
+            </summary>
+            <remarks>This subtracts OverheadTicks from the measured ticks
+            to compensate for overhead.</remarks>
+            <param name="startTicks">The starting tick count.</param>
+            <returns>A new TimeSpan.</returns>
+        </member>
+        <member name="M:RTools.Util.HighResClock.CalcTimeSpan(System.DateTime)">
+            <summary>
+            Calculate the duration (to NowTicks) as a TimeSpan.
+            <seealso cref="T:System.TimeSpan"/>
+            </summary>
+            <remarks>This subtracts OverheadTicks from the measured ticks
+            to compensate for overhead.</remarks>
+            <param name="startTime">The starting DateTime.</param>
+            <returns>A new TimeSpan.</returns>
+        </member>
+        <member name="M:RTools.Util.HighResClock.CalcTimeSpan(System.DateTime,System.DateTime)">
+            <summary>
+            Calculate the duration (to NowTicks) as a TimeSpan.
+            <seealso cref="T:System.TimeSpan"/>
+            </summary>
+            <remarks>This subtracts OverheadTicks from the measured ticks
+            to compensate for overhead.</remarks>
+            <param name="startTime">The starting DateTime.</param>
+            <param name="stopTime">The stopping DateTime.</param>
+            <returns>A new TimeSpan.</returns>
+        </member>
+        <member name="M:RTools.Util.HighResClock.TestSelf">
+            <summary>
+            A simple self test.
+            </summary>
+            <returns>bool - true for test passed, false for failed</returns>
+        </member>
+        <member name="P:RTools.Util.HighResClock.NowTicks">
+            <summary>
+            Gets the tick count from the clock.
+            </summary>
+            <remarks>No adjustment is made to this due to OverheadTicks.</remarks>
+        </member>
+        <member name="P:RTools.Util.HighResClock.Now">
+            <summary>
+            Return a DateTime which represents the current time.  This is similar
+            to DateTime.Now, but is higher resolution.
+            <seealso cref="T:System.DateTime"/>
+            </summary>
+            <remarks>No adjustment is made to this due to OverheadTicks.</remarks>
+        </member>
+        <member name="P:RTools.Util.HighResClock.OverheadTicks">
+            <summary>
+            The minimum duration that this class is able to measure. 
+            This is measured during Calibrate().
+            This represents the number of ticks it takes to make
+            a duration measurement, and is therefore the effective 
+            resolution of this class.
+            This is subtracted from all duration calculations, which should 
+            compensate for the clock read overhead.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.HighResClock.Frequency">
+            <summary>
+            This returns the number of high performance counter ticks (NOT .Net ticks) per second,
+            as measured by Kernel32.dll's QueryPerformanceFrequency() function.
+            </summary>
+        </member>
+        <member name="T:RTools.Util.CharBuffer">
+            <summary>
+            Buffer for characters.  This approximates StringBuilder
+            but is designed to be faster for specific operations.
+            This is about 30% faster for the operations I'm interested in
+            (Append, Clear, Length, ToString).
+            This trades off memory for speed.
+            </summary>
+            <remarks>
+            <para>To make Remove from the head fast, this is implemented
+            as a ring buffer.</para>
+            <para>This uses head and tail indices into a fixed-size 
+            array. This will grow the array as necessary.</para>
+            </remarks>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.#ctor(System.Int32)">
+            <summary>
+            Construct with a specific capacity.
+            </summary>
+            <param name="capacity"></param>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.Grow(System.Int32)">
+            <summary>
+            Reallocate the buffer to be larger. For the new size, this
+            uses the max of the requested length and double the current
+            capacity.
+            This does not shift, meaning it does not change the head or
+            tail indices.
+            </summary>
+            <param name="requestedLen">The new requested length.</param>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.CheckCapacity(System.Int32)">
+            <summary>
+            Ensure that we're set for the requested length by 
+            potentially growing or shifting contents.
+            </summary>
+            <param name="requestedLength"></param>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.ShiftToZero">
+            <summary>
+            Move the buffer contents such that headIndex becomes 0.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.SetBuffer(System.Char[],System.Int32)">
+            <summary>
+            Overwrite this object's underlying buffer with the specified
+            buffer.
+            </summary>
+            <param name="b">The character array.</param>
+            <param name="len">The number of characters to consider filled
+            in the input buffer.</param>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.Append(System.Char)">
+            <summary>
+            Append a character to this buffer.
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.Append(System.String)">
+            <summary>
+            Append a string to this buffer.
+            </summary>
+            <param name="s">The string to append.</param>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.Append(RTools.Util.CharBuffer)">
+            <summary>
+            Append a string to this buffer.
+            </summary>
+            <param name="s">The string to append.</param>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.Remove(System.Int32)">
+            <summary>
+            Remove a character at the specified index.
+            </summary>
+            <param name="i">The index of the character to remove.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.Remove(System.Int32,System.Int32)">
+            <summary>
+            Remove a specified number of characters at the specified index.
+            </summary>
+            <param name="i">The index of the characters to remove.</param>
+            <param name="n">The number of characters to remove.</param>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.IndexOf(System.Char)">
+            <summary>
+            Find the first instance of a character in the buffer, and
+            return its index.  This returns -1 if the character is
+            not found.
+            </summary>
+            <param name="c">The character to find.</param>
+            <returns>The index of the specified character, or -1
+            for not found.</returns>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.Clear">
+            <summary>
+            Empty the buffer.
+            </summary>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.ToString">
+            <summary>
+            Return the current contents as a string.
+            </summary>
+            <returns>The new string.</returns>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.TestSelf">
+            <summary>
+            Simple self test.
+            </summary>
+            <returns>bool - true for test passed, false otherwise</returns>
+        </member>
+        <member name="M:RTools.Util.CharBuffer.SpeedTest">
+            <summary>
+            Compare speed to StringBuilder.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.CharBuffer.Length">
+            <summary>
+            Gets/Sets the number of characters in the character buffer.
+            Increasing the length this way provides indeterminate results.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.CharBuffer.Capacity">
+            <summary>
+            Returns the capacity of this character buffer.
+            </summary>
+        </member>
+        <member name="P:RTools.Util.CharBuffer.Item(System.Int32)">
+            <summary>
+            Indexer.
+            </summary>
+        </member>
+    </members>
+</doc>

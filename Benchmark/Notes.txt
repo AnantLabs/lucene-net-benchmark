@@ -1,0 +1,32 @@
+﻿
+Jason Ramsey - 1/27/11
+Decided to idomatic on elapsed time stuff and use datetime and timespan
+
+Jason Ramsey - 2/6/11
+Right now I am assumignt that classes that would define a content source would
+be found in the Benchmark.exe and that any analyzers and queryparsers would
+be Lucene.Net.dll.
+
+fields.Add( BODY_FIELD, new Field( BODY_FIELD, "", store, bodyIndex, termVector ) );
+fields.Add( TITLE_FIELD, new Field( TITLE_FIELD, "", store, index, termVector ) );
+fields.Add( DATE_FIELD, new Field( DATE_FIELD, "", store, index, termVector ) );
+fields.Add( ID_FIELD, new Field( ID_FIELD, "", Field.Store.YES, Field.Index.NOT_ANALYZED_NO_NORMS ) );
+fields.Add( BYTES_FIELD, new Field( BYTES_FIELD, "", store, index, termVector ) );
+fields.Add( NAME_FIELD, new Field( NAME_FIELD, "", store, index, termVector ) );
+fields.Add( ADVANCED_FIELD, new Field( ADVANCED_FIELD, "", store, index, termVector ) );
+fields.Add( ARCHIVED_FIELD, new Field( ARCHIVED_FIELD, "", store, index, termVector ) );
+fields.Add( CALLSIGN_FIELD, new Field( CALLSIGN_FIELD, "", store, index, termVector ) );
+fields.Add( CCEXISTS_FIELD, new Field( CCEXISTS_FIELD, "", store, index, termVector ) );
+fields.Add( CHANNEL_FIELD, new Field( CHANNEL_FIELD, "", store, index, termVector ) );
+fields.Add( CLIP_FIELD, new Field( CLIP_FIELD, "", store, index, termVector ) );
+fields.Add( DESCRIPTION_FIELD, new Field( DESCRIPTION_FIELD, "", store, index, termVector ) );
+fields.Add( DURATION_FIELD, new Field( DURATION_FIELD, "", store, index, termVector ) );
+fields.Add( END_FIELD, new Field( END_FIELD, "", store, index, termVector ) );
+fields.Add( FOLDERPATHID_FIELD, new Field( FOLDERPATHID_FIELD, "", store, index, termVector ) );
+fields.Add( INPROGRESS_FIELD, new Field( INPROGRESS_FIELD, "", store, index, termVector ) );
+fields.Add( LINESTART_FIELD, new Field( LINESTART_FIELD, "", store, index, termVector ) );
+fields.Add( MACHINEID_FIELD, new Field( MACHINEID_FIELD, "", store, index, termVector ) );
+fields.Add( MODIFIED_FIELD, new Field( MODIFIED_FIELD, "", store, index, termVector ) );
+fields.Add( NETWORK_FIELD, new Field( NETWORK_FIELD, "", store, index, termVector ) );
+fields.Add( START_FIELD, new Field( START_FIELD, "", store, index, termVector ) );
+fields.Add( EPISODETITLE_FIELD, new Field( EPISODETITLE_FIELD, "", store, index, termVector ) );

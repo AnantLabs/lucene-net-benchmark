@@ -1,0 +1,53 @@
+﻿
+- Jason Ramsey - 1/27/11
+Double check the following files to make sure I'm not missing some exceptions
+from the original Java
+bytask/stats/points
+bytask/Tasks/perftask
+bytask/Tasks/TaskSequence
+bytask/Utils/Alogrithm
+bytask/Utils/Config
+bytask/Utils/Format
+bytask/Benchmark
+bytaks/PerRunData
+
+- Jason Ramsey - 1/28/11
+Change casing on all routines to start with uppercase
+
+- Jason Ramsey - 1/28/11
+Update inline comments so they are picked up by C# docs
+
+- Jason Ramsey - 1/28/11
+Double check const.  Some of them probably should have been sealed
+
+-Jason Ramsey 1/28/11
+Add the exceptions I've removed from some routines back in.
+
+-Jason Ramsey 1/28/11
+Check on the files that declare threadStatic variables.  I ended up removing
+the static state, but maybe that wasn't right.  It looks to me like the intent 
+was to have a static value created when the thread starts, and then to copy the
+values to local variables for local manipulation.
+
+- Jason Ramsey 1/28/11
+Check all instances of the keyword "final" to make sure I have replaced it correctly
+
+- Jason Ramsey 2/3/11
+Should merge the "Assembly" definitions into some master configurations
+
+- Jason Ramsey 2/3/11
+Consider changing the private fields to the standard "_" format
+
+- Jason Ramsey 2/6/11
+Go through all files and remove all unecessary usings
+
+- Jason Ramsey 2/6/11
+Add the no more data exception back in
+
+- Jason Ramsey 2/14/11
+Fix the enwiki content source
+
+- Add the no more data exception back in at the approriate places - Fixed 2/15/11
+
+Jason Ramsey 2/16/11
+- resolve the "clone" vs. "Clone" issue (will be fixed when method names are changed to .Net standard)

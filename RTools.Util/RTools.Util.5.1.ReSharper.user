@@ -1,0 +1,53 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:AssemblyInfo.cs" caret="1437" fromTop="40" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:BufferedTextReader.cs" caret="1541" fromTop="52" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:Token.cs" caret="12889" fromTop="20" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:Logger.cs" caret="3100" fromTop="21" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:CharBuffer.cs" caret="4837" fromTop="22" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizerTestCase.cs" caret="12809" fromTop="0" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:StreamTokenizerWithPeek.cs" caret="927" fromTop="14" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizer.cs" caret="6882" fromTop="34" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:Program.cs" caret="543" fromTop="16" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizerTestCase.cs" caret="0" fromTop="0" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizer.cs" caret="0" fromTop="0" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:BufferedTextReader.cs" caret="0" fromTop="0" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:Token.cs" caret="4051" fromTop="11" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:AssemblyInfo.cs" caret="2371" fromTop="19" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:Program.cs" caret="108" fromTop="4" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizer.cs" caret="3514" fromTop="13" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:Token.cs" caret="2090" fromTop="16" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizer.cs" caret="29147" fromTop="39" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizer.cs" caret="22185" fromTop="28" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizer.cs" caret="21933" fromTop="4" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizer.cs" caret="21590" fromTop="17" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:StreamTokenizer.cs" caret="22306" fromTop="17" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:StreamTokenizerWithPeek.cs" caret="974" fromTop="25" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:StreamTokenizerWithPeek.cs" caret="1384" fromTop="34" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:Program.cs" caret="1001" fromTop="26" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:Program.cs" caret="859" fromTop="25" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:Program.cs" caret="946" fromTop="30" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:Logger.cs" caret="3061" fromTop="19" />
+      <File id="68FD50A2-3EE5-4637-B394-9A1F310DAB63/f:CharBuffer.cs" caret="7197" fromTop="19" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:StreamTokenizerWithPeek.cs" caret="2199" fromTop="21" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:StreamTokenizerWithPeek.cs" caret="1996" fromTop="11" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:Program.cs" caret="315" fromTop="10" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:Program.cs" caret="636" fromTop="20" />
+      <File id="3045F231-69F0-4816-9078-6ED84295B13C/f:Program.cs" caret="543" fromTop="16" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

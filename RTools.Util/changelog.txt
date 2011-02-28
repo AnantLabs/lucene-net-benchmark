@@ -1,0 +1,35 @@
+(change log started January 11th, 2003)
+
+2003-01-11	avoid rollover of large integers by converting to float
+2003-01-11	fix case where Eol after whitespace was put into the whitespace token
+2003-01-20	refactor hex number parse
+2003-01-21	fix hex number parse (didn't call 9 a hex digit)
+2003-02-10	drop .sln, which is broken without the test project
+2003-05-31	Update Finder.Main() to add some more operations like -delete.
+2003-06-01	Add StreamTokenizer.SpeedTest().  Double the speed of most tokenization.
+			Make hex number parsing about 6x faster.
+2003-06-14	1.5.0.0		Optimize tokenization more, maybe 30% speedup. Add CharBuffer.
+2003-06-16	1.5.1.0		Optimize tokenization more, maybe 2x speedup from Token op_Equals change.
+2003-06-18	1.5.2.0		Optimize tokenization more, GrabInt() speedup.
+						Rename Token.ToString() to Token.ToDebugString(). 
+						Make ToString() do what StringValue used to do.
+2003-08-10	1.5.3.0		Handle floats without digits before period (.24).
+2003-10-05	1.6.0.0		Add Scott Love's int64 support to StreamTokenizer, and 
+				his fix for a bug in string handling where escaped backslashes
+				could trip it up. Increase cutover to FloatToken to 19 digit 
+				integers, since IntToken can now handle 18 digit integers.
+2003-10-16	1.6.1.0		Fix Finder's FindFiles() to handle unauthorized access exceptions.
+
+-- Change to VS.Net 2003 with .Net 1.1 --
+
+2004-01-01	1.7.*		Change FloatToken.StringValue to display higher precision to fix
+						ParseUtil.BuildArray losing precision.
+						Add StreamTokenizer test for missing file.
+2004-02-14	1.7.1.*		Fix token line number handling.  Change StreamTokenizerTestCase
+						to also test line numbers.  Add test cases for line number
+						handling.
+2004-04-21	1.8.*		Add basic Unicode support (treat all characters > 127 as Word characters).
+2004-06-15	1.8.1.*		Fix a bug which caused GrabEol setting to not work for Eol after whitespace.
+2004-07-17	1.8.2.*		Change ParseUtil.BuildArray to not catch conversion exceptions
+					because they are such a large performance hit.
+						

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="RTools.Util">
+</Property><Property Name="Solution File" Value="D:\thirdparty\RTools.Util\RTools.Util.sln">
+</Property><Property Name="Date" Value="Thursday, January 27, 2011">
+</Property><Property Name="Time" Value="10:30:56 AM">
+</Property></Properties><Event ErrorLevel="0" Project="RTools.Util" Source="RTools.Util.csproj" Description="Project file successfully backed up as D:\thirdparty\RTools.Util\Backup\RTools.Util.csproj">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="AssemblyInfo.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="BufferedTextReader.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\BufferedTextReader.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="CharBuffer.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\CharBuffer.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="Finder.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\Finder.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="HighResClock.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\HighResClock.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="Logger.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\Logger.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="Opts.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\Opts.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="ParseUtil.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\ParseUtil.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="SoftwarePackage.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\SoftwarePackage.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="StreamTokenizer.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\StreamTokenizer.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="StreamTokenizerTestCase.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\StreamTokenizerTestCase.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="Token.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\Token.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="VerbosityLevel.cs" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\VerbosityLevel.cs">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="changelog.txt" Description="File successfully backed up as D:\thirdparty\RTools.Util\Backup\changelog.txt">
+</Event><Event ErrorLevel="1" Project="RTools.Util" Source="RTools.Util.csproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="RTools.Util.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="RTools.Util" Source="RTools.Util.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="RTools.Util" Source="RTools.Util.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
